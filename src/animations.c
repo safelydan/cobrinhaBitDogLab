@@ -126,14 +126,20 @@ void counting()
         {{0, 0, 0}, {20, 0, 0}, {20, 0, 0}, {20, 0, 0}, {0, 0, 0}},
         {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {20, 0, 0}, {0, 0, 0}},
         {{0, 0, 0}, {20, 0, 0}, {20, 0, 0}, {20, 0, 0}, {0, 0, 0}}};
-
+    
     draw_frame(number3);
-    sleep_ms(1000);
+    notes(BUZZER_PIN, 800, 300);
+    sleep_ms(700);
+    
     draw_frame(number2);
-    sleep_ms(1000);
+    notes(BUZZER_PIN, 600, 300);
+    sleep_ms(700);
+    
     draw_frame(number1);
-    sleep_ms(1000);
+    notes(BUZZER_PIN, 400, 300);
+    sleep_ms(700);
 }
+
 
 // Ícone de seta (por exemplo, para indicar um botão)
 void seta()
@@ -144,7 +150,12 @@ void seta()
         {{20, 0, 0}, {20, 0, 0}, {20, 0, 0}, {20, 0, 0}, {20, 0, 0}},
         {{0, 0, 0}, {20, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}},
         {{0, 0, 0}, {0, 0, 0}, {20, 0, 0}, {0, 0, 0}, {0, 0, 0}}};
+    
     draw_frame(seta_frame);
+    notes(BUZZER_PIN, 700, 200);
+    sleep_ms(100);
+    notes(BUZZER_PIN, 900, 200);
+    sleep_ms(100);
 }
 
 // Animação de "death" unindo expressões e explosão

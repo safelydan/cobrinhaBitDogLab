@@ -99,7 +99,7 @@ void explosion(int times)
         for (int f = 0; f < num_frames; f++)
         {
             draw_frame(explosion_frames[f]);
-            play_explosion_sound();
+            death();
             sleep_ms(delayExplosion);
         }
     }

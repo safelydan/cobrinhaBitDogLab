@@ -19,7 +19,7 @@ uint16_t audio_buffer[BUFFER_SIZE];
 //------------------------------------------------------------------------------
 // Função para tocar uma nota utilizando PWM
 //------------------------------------------------------------------------------
-void play_note(uint buzzer_pin, int frequency, int duration_ms)
+void notes(uint buzzer_pin, int frequency, int duration_ms)
 {
     if (frequency == 0)
     {
@@ -40,7 +40,7 @@ void play_note(uint buzzer_pin, int frequency, int duration_ms)
 //------------------------------------------------------------------------------
 // Configura os pinos do buzzer para PWM
 //------------------------------------------------------------------------------
-void setup_buzzer()
+void buzzer()
 {
     gpio_set_function(BUZZER_PIN, GPIO_FUNC_PWM);
     uint slice_num = pwm_gpio_to_slice_num(BUZZER_PIN);
@@ -56,42 +56,42 @@ void setup_buzzer()
 //------------------------------------------------------------------------------
 // Toca o som do movimento da cobrinha
 //------------------------------------------------------------------------------
-void play_melody()
+void basic_melody()
 {
-    play_note(BUZZER_PIN, NOTE_LOW, 100);
+    notes(BUZZER_PIN, NOTE_LOW, 100);
     sleep_ms(50);
-    play_note(BUZZER_PIN, NOTE_MEDIUM, 100);
+    notes(BUZZER_PIN, NOTE_MEDIUM, 100);
 }
 
 //------------------------------------------------------------------------------
 // Som ao comer um item
 //------------------------------------------------------------------------------
-void packman()
+void music()
 {
-    play_note(BUZZER_PIN, NOTE_SCORE, 150);
+    notes(BUZZER_PIN, NOTE_SCORE, 150);
     sleep_ms(50);
-    play_note(BUZZER_PIN, NOTE_HIGH, 200);
+    notes(BUZZER_PIN, NOTE_HIGH, 200);
 }
 
 //------------------------------------------------------------------------------
 // Som de colisão (fim de jogo)
 //------------------------------------------------------------------------------
-void play_explosion_sound()
+void death()
 {
     for (int freq = 1000; freq > 200; freq -= 200)
     {
-        play_note(BUZZER_PIN, freq, 50);
+        notes(BUZZER_PIN, freq, 50);
         sleep_ms(20);
     }
-    play_note(BUZZER_PIN, NOTE_GAME_OVER, 500);
+    notes(BUZZER_PIN, NOTE_GAME_OVER, 500);
 }
 
 //------------------------------------------------------------------------------
 // Som de transição entre estados do jogo (início, pausa, etc.)
 //------------------------------------------------------------------------------
-void play_pacman_walk_sound()
+void walk()
 {
-    play_note(BUZZER_PIN, NOTE_MEDIUM, 100);
+    notes(BUZZER_PIN, NOTE_MEDIUM, 100);
     sleep_ms(50);
-    play_note(BUZZER_PIN, NOTE_LOW, 100);
+    notes(BUZZER_PIN, NOTE_LOW, 100);
 }

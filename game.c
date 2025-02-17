@@ -35,8 +35,8 @@ void init_hardware() {
     gpio_set_function(BUZZER_PIN2, GPIO_FUNC_PWM);
     pwm_set_enabled(pwm_gpio_to_slice_num(BUZZER_PIN2), true);
 
-    setup_buzzer();
-    play_note(BUZZER_PIN2, 1, 10);
+    buzzer();
+    notes(BUZZER_PIN2, 1, 10);
 }
 
 uint16_t read_adc(uint input) {
@@ -53,9 +53,9 @@ void wait_for_button_press(uint pin) {
 void toggle_pause() {
     game_paused = !game_paused; // Alterna entre pausado e rodando
     if (game_paused) {
-        play_note(BUZZER_PIN2, NOTE_C4, 200); // Sinal sonoro para pausa
+        notes(BUZZER_PIN2, NOTE_C4, 200); // Sinal sonoro para pausa
     } else {
-        play_note(BUZZER_PIN2, NOTE_C4, 200); // Sinal sonoro para retomada
+        notes(BUZZER_PIN2, NOTE_C4, 200); // Sinal sonoro para retomada
     }
 }
 
@@ -65,7 +65,7 @@ int main() {
 
     while (1) {
         seta();
-        packman();
+        music();
 
         wait_for_button_press(BUTTON_A);
 

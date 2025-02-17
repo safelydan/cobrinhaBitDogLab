@@ -150,7 +150,7 @@ int mover(int direcao){
             break;
     }
     
-    play_pacman_walk_sound();
+    walk();
     return 0;
 }
 
